@@ -10,9 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var mensShowSizeTextField: UITextField!
+    @IBOutlet weak var mensShoeSizeTextField: UITextField!
     @IBOutlet weak var mensConvertedShoeSizeLabel: UILabel!
-    
+    @IBOutlet weak var womensShoeSizeTextField: UITextField!
+    @IBOutlet weak var womensShoeSizeLabel: UILabel!
     
     
     
@@ -28,7 +29,7 @@ class ViewController: UIViewController {
 
     @IBAction func convertButtonPressed(sender: UIButton) {
         
-        let sizeFromTextField = mensShowSizeTextField.text.toInt()!
+        let sizeFromTextField = mensShoeSizeTextField.text.toInt()!
         
         //create constant and set to 30
         let conversionConstant = 30
@@ -40,5 +41,13 @@ class ViewController: UIViewController {
 
     }
 
+    @IBAction func convertWomensShoeSizeButtonPressed(sender: UIButton) {
+        let sizeFromTextField = Double((womensShoeSizeTextField.text as NSString).doubleValue)
+        
+        let conversionConstant = 30.5
+        womensShoeSizeLabel.hidden = false
+        womensShoeSizeLabel.text = "\(sizeFromTextField + conversionConstant)" + " in European Shoe Size"
+        
+    }
 }
 
